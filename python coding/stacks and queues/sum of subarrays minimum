@@ -1,0 +1,35 @@
+class Solution:
+    def sumSubarrayMins(self, arr):
+        n = len(arr)
+        mod = 10**9 + 7
+    
+        # Previous Smaller Element (strictly greater)
+        prev_smaller = [-1] * n
+        stack = []
+        for i in range(n):
+            while stack and arr[stack[-1]] >= arr[i]:
+                stack.pop()
+            if stack:
+                prev_smaller[i] = stack[-1]
+            stack.append(i)
+    
+        # Next Smaller Element (greater or equal)
+        next_smaller = [n] * n
+        stack = []
+        for i in range(n):
+            while stack and arr[stack[-1]] >= arr[i]:
+                idx = stack.pop()
+                next_smaller[idx] = i
+            stack.append(i)
+    
+        # Total contribution
+        total = 0
+        for i in range(n):
+            left = i - prev_smaller[i]
+            right = next_smaller[i] - i
+            total = (total + arr[i] * left * right) % mod
+    
+        return total,prev_smaller,next_smaller
+solution = Solution()
+ans = solution.sumSubarrayMins([3,1,2,4])
+print(ans)
