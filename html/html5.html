@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Dave Gray">
+    <meta name="description" content="A feature-rich example using HTML5 tags and attributes">
+    <title>HTML5 Feature Rich Example</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Feature-Rich HTML5 Page</h1>
+        <nav>
+            <ul style="list-style-type: square;">
+                <!-- Custom bullet style -->
+                <li><a href="#about">About</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#graphics">Graphics</a></li>
+                <li><a href="#advanced">Advanced Features</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About This Page</h2>
+            <article>
+                <p>This page demonstrates various HTML5 features, including new elements, attributes, and APIs.</p>
+                <aside>
+                    <h3>Did You Know?</h3>
+                    <blockquote cite="https://developer.mozilla.org/">
+                        "HTML5 introduces many powerful features to modern web development."
+                    </blockquote>
+                </aside>
+            </article>
+        </section>
+
+        <hr>
+
+        <!-- Forms Section -->
+        <section id="forms">
+            <h2>HTML5 Forms</h2>
+            <form action="submit.html" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@domain.com"><br>
+
+                <label for="tel">Phone:</label>
+                <input type="tel" id="tel" name="tel"><br>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob"><br>
+
+                <label for="appt">Preferred Time:</label>
+                <input type="time" id="appt" name="appt"><br>
+
+                <label for="color">Favorite Color:</label>
+                <input type="color" id="color" name="color"><br>
+
+                <label for="range">Select Range:</label>
+                <input type="range" id="range" name="range" min="1" max="10"><br>
+
+                <label for="rating">Rate Us:</label>
+                <meter id="rating" min="0" max="5" value="3">3/5</meter><br>
+
+                <label for="progress">Task Progress:</label>
+                <progress id="progress" value="50" max="100">50%</progress><br>
+
+                <label for="food">Choose Food:</label>
+                <select id="food" name="food">
+                    <option value="pizza">Pizza</option>
+                    <option value="burger">Burger</option>
+                    <option value="pasta">Pasta</option>
+                </select><br>
+
+                <label for="browser">Select Browser:</label>
+                <input list="browsers" id="browser" name="browser">
+                <datalist id="browsers">
+                    <option value="Chrome">
+                    <option value="Firefox">
+                    <option value="Safari">
+                    <option value="Edge">
+                </datalist><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Media Section -->
+        <section id="media">
+            <h2>HTML5 Media</h2>
+
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="audio/sample.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <h3>Video</h3>
+            <video controls width="400">
+                <source src="video/sample.mp4" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+
+            <h3>Embed Video with Iframe</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"
+                frameborder="0" allowfullscreen></iframe>
+        </section>
+
+        <hr>
+
+        <!-- Graphics Section -->
+        <section id="graphics">
+            <h2>HTML5 Graphics</h2>
+
+            <h3>Canvas</h3>
+            <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+
+            <h3>SVG</h3>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+            </svg>
+        </section>
+
+        <hr>
+
+        <!-- Advanced Features -->
+        <section id="advanced">
+            <h2>Advanced HTML5 Features</h2>
+
+            <h3>Drag and Drop</h3>
+            <div id="drag-container" style="border: 1px solid black; padding: 10px;">
+                <p draggable="true" ondragstart="event.dataTransfer.setData('text/plain', 'This is draggable!');">
+                    Drag me!
+                </p>
+                <div ondrop="event.preventDefault(); alert(event.dataTransfer.getData('text/plain'));"
+                    ondragover="event.preventDefault();" style="border: 1px dashed black; padding: 10px;">Drop here!
+                </div>
+            </div>
+
+            <h3>Geolocation</h3>
+            <button onclick="getLocation()">Get Location</button>
+            <p id="location"></p>
+
+            <script>
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition((position) => {
+                            document.getElementById('location').innerText = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+                        });
+                    } else {
+                        document.getElementById('location').innerText = "Geolocation is not supported by this browser.";
+                    }
+                }
+            </script>
+
+            <h3>Manifest</h3>
+            <link rel="manifest" href="manifest.json">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Feature-Rich Page</p>
+    </footer>
+</body>
+
+</html>

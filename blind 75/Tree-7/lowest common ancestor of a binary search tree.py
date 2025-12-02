@@ -1,0 +1,15 @@
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right 
+class Solution:
+    def lowest_common_ancestor(self,root,p,q):
+        curr = root 
+        while curr:
+            if p.val > curr.val and q.val>curr.val:
+                curr = curr.right 
+            elif p.val<curr.val and q.val<curr.val:
+                curr = curr.left
+            else:
+                return curr
